@@ -1,0 +1,106 @@
+scene
+{
+    path = XB2.gpb
+
+    showDefaultLight = false
+    ambientColor = 1.0, 1.0, 1.0
+
+    modelSize = 5000.0
+    modelScale = 1.0
+    defaultModelId=group_Mod
+
+    node Group_Light
+    {
+    }
+    node Group_block
+    {
+    }
+    node Guangquan_001
+    {
+        enabled=false
+        scale=1,1,1
+    }
+    node XBCC_dc
+    {
+        oneBoundMin=0,0,0
+        oneBoundMax=0.1,0.1,0.1
+    }
+    node XBCC_gq
+    {
+        oneBoundMin=0,0,0
+        oneBoundMax=0.1,0.1,0.1
+    }
+    node XBCC_gy
+    {
+        oneBoundMin=0,0,0
+        oneBoundMax=0.1,0.1,0.1
+    }
+    node XBCC_lizi
+    {   
+        oneBoundMin=0,0,0
+        oneBoundMax=0.1,0.1,0.1
+    }
+    node XBCC_tm3
+    {
+        oneBoundMin=0,0,0
+        oneBoundMax=0.1,0.1,0.1
+    }
+    node XBCC_xw
+    {
+        oneBoundMin=0,0,0
+        oneBoundMax=0.1,0.1,0.1
+    }
+    node block__001
+    {
+        //scale = 0,0,0
+        //translate=0,0,3410
+    }
+    node block__002
+    {
+        scale = 0,0,0
+        enabled=false
+    }
+    node block__003
+    {  
+        scale = 0,0,0
+        enabled=false
+    }
+    node block__004
+    {
+        scale = 0,0,0
+        enabled=false
+    }
+    node block__005
+    {
+        scale = 0,0,0
+        enabled=false
+    }
+    node block__006
+    {
+        scale = 0,0,0
+    }
+    node block__007
+    {
+        scale = 0,0,0
+    }
+    node block__008
+    {
+        scale = 0,0,0
+    }
+    node block__009
+    {
+        scale = 0,0,0
+    }
+    node block__010
+    {
+        scale = 0,0,0
+    }
+    node group_Mod
+    {
+        //translate=0,-1000,0
+    }
+    node group_heidong
+    {
+    }
+
+}

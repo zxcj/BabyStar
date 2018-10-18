@@ -1,0 +1,51 @@
+animation Bone_guangquan
+{
+    frameCount = 80
+
+    startTime = 0
+
+    stopTime = 2666
+
+    clip Default
+    {
+        begin = 0
+        end = 80
+        repeatCount = 1
+    }
+
+}
+
+animation Bone_xuanwo
+{
+    frameCount = 80
+
+    startTime = 0
+
+    stopTime = 2666
+
+    clip Default
+    {
+        begin = 0
+        end = 80
+        repeatCount = 1
+    }
+
+}
+
+animation Bone_lizi
+{
+    frameCount = 80
+
+    startTime = 0
+
+    stopTime = 2666
+
+    clip Default
+    {
+        begin = 0
+        end = 80
+        repeatCount = 1
+    }
+
+}
+

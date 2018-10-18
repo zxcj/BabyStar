@@ -1,0 +1,209 @@
+material textured
+{
+    sampler u_diffuseTexture
+    {
+        mipmap = false
+        wrapS = CLAMP
+        wrapT = CLAMP
+        minFilter = LINEAR
+        magFilter = LINEAR
+    }
+
+    technique
+    {
+        pass 
+        {
+            vertexShader = shaders/textured.vert
+            fragmentShader = shaders/textured.frag
+
+            u_inverseTransposeWorldViewMatrix = INVERSE_TRANSPOSE_WORLD_VIEW_MATRIX
+            u_worldViewProjectionMatrix = WORLD_VIEW_PROJECTION_MATRIX
+            
+            renderState
+            {
+                blend = true
+                blendDst = ONE_MINUS_SRC_ALPHA
+                blendSrc = SRC_ALPHA
+                cullFace = true
+                cullFaceSide = BACK
+                depthTest = true
+            }
+            
+        }
+    }
+}
+
+
+material colored
+{
+    technique
+    {
+        pass 
+        {
+            vertexShader = shaders/colored.vert
+            fragmentShader = shaders/colored.frag
+
+            u_inverseTransposeWorldViewMatrix = INVERSE_TRANSPOSE_WORLD_VIEW_MATRIX
+            u_worldViewProjectionMatrix = WORLD_VIEW_PROJECTION_MATRIX
+            
+            renderState
+            {
+                blend = true
+                blendDst = ONE_MINUS_SRC_ALPHA
+                blendSrc = SRC_ALPHA
+                cullFace = true
+                cullFaceSide = BACK
+                depthTest = true
+            }
+            
+        }
+    }
+}
+material lambert10 : textured
+{
+    u_modulateColor=1,1,1,1
+    sampler u_diffuseTexture
+    {
+        path = XB2.fbm/XBCC_dizuo_01_Tex.png
+    }
+
+    technique
+    {
+        pass 
+        {
+            u_matrixPalette = MATRIX_PALETTE
+            
+            defines = DIRECTIONAL_LIGHT_COUNT 1;SKINNING;SKINNING_JOINT_COUNT 1;MODULATE_COLOR
+        }
+    }
+}
+
+
+material lambert3 : textured
+{
+    sampler u_diffuseTexture
+    {
+        path = XB2.fbm/XBCC_touming_01_Tex.png
+    }
+
+    technique
+    {
+        pass 
+        {
+            u_matrixPalette = MATRIX_PALETTE
+            
+            defines = DIRECTIONAL_LIGHT_COUNT 1;SKINNING;SKINNING_JOINT_COUNT 1
+        }
+    }
+}
+
+material lambert4 : textured
+{
+    sampler u_diffuseTexture
+    {
+        path = XB2.fbm/XBCC_xuanwodi_02_Tex.png
+    }
+
+    technique
+    {
+        pass 
+        {
+            u_matrixPalette = MATRIX_PALETTE
+            
+            defines = DIRECTIONAL_LIGHT_COUNT 1;SKINNING;SKINNING_JOINT_COUNT 1
+        }
+    }
+}
+
+material lambert5 : textured
+{
+    sampler u_diffuseTexture
+    {
+        path = XB2.fbm/XBCC_guangying_Tex.png
+    }
+
+    technique
+    {
+        pass 
+        {
+            u_matrixPalette = MATRIX_PALETTE
+            
+            defines = DIRECTIONAL_LIGHT_COUNT 1;SKINNING;SKINNING_JOINT_COUNT 1
+        }
+    }
+}
+
+material lambert6 : textured
+{
+    u_modulateColor=1,1,1,1
+    sampler u_diffuseTexture
+    {
+        path = XB2.fbm/XBCC_guangquanTex.png
+    }
+
+    technique
+    {
+        pass 
+        {
+            u_matrixPalette = MATRIX_PALETTE
+            
+            defines = DIRECTIONAL_LIGHT_COUNT 1;SKINNING;SKINNING_JOINT_COUNT 1;MODULATE_COLOR
+        }
+    }
+}
+
+material lambert7 : textured
+{
+    sampler u_diffuseTexture
+    {
+        path = XB2.fbm/XBCC_xuanwo_02_Tex.png
+    }
+
+    technique
+    {
+        pass 
+        {
+            u_matrixPalette = MATRIX_PALETTE
+            
+            defines = DIRECTIONAL_LIGHT_COUNT 1;SKINNING;SKINNING_JOINT_COUNT 1
+        }
+    }
+}
+
+material lambert8 : textured
+{
+    sampler u_diffuseTexture
+    {
+        path = XB2.fbm/XBCC_lizi_01_Tex.png
+    }
+
+    technique
+    {
+        pass 
+        {
+            u_matrixPalette = MATRIX_PALETTE
+            
+            defines = DIRECTIONAL_LIGHT_COUNT 1;SKINNING;SKINNING_JOINT_COUNT 1
+        }
+    }
+}
+
+material lambert9 : textured
+{
+    u_modulateColor=1,1,1,1
+    sampler u_diffuseTexture
+    {
+        path = XB2.fbm/XBCC_guangquan_Tex.png
+    }
+
+    technique
+    {
+        pass 
+        {
+            u_matrixPalette = MATRIX_PALETTE
+            
+            defines = DIRECTIONAL_LIGHT_COUNT 1;SKINNING;SKINNING_JOINT_COUNT 1;MODULATE_COLOR
+        }
+    }
+}
+
