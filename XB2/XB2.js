@@ -8,11 +8,9 @@ var WorldOrigin = {
 	y: 0,
 	z: 0
 };
-var gameOver = false;
-
-
+var gameOver=false;
 //Used to avoid secondary excution of OnPressRelease function
-var OnPressing = false;
+var OnPressing;
 
 //Step Paramaters   
 var Score = 0;
@@ -23,7 +21,7 @@ var SizeOfPreviousStep = 1;
 var HeightOfEachStep = 310;
 var MaximumCountOfSteps = 6;
 var HeightofeachLightstep = 310;
-var StepGroupsNodeName = ["Group_block_001", "Group_block_002", "Group_block_003", "Group_block_004", "Group_block_005", "Group_block_006", "Group_block_007"]; // "Group_block_008", "Group_block_009", "Group_block_010"];
+var StepGroupsNodeName = ["Group_block_001", "Group_block_002", "Group_block_003", "Group_block_004", "Group_block_005", "Group_block_006", "Group_block_007", "Group_block_008", "Group_block_009", "Group_block_010"];
 var StepBlocksNodeName = ["block__001", "block__002", "block__003", "block__004", "block__005", "block__006", "block__007", "block__008", "block__009", "block__010"];
 var StepHintsNodeName = ["Guangquan_001", "Guangquan_002", "Guangquan_003", "Guangquan_004", "Guangquan_005", "Guangquan_006", "Guangquan_007", "Guangquan_008", "Guangquan_009", "Guangquan_0010"];
 var QueueArray = new Array();
@@ -79,6 +77,7 @@ var EndColor = {
 // SLAM Paramaters
 var WasCreated = false;
 
+
 //************************
 //	  FOR SIMULATION 
 var WasClicked = false;
@@ -89,7 +88,6 @@ AR.onload = function() {
 	AR.play("Bone_guangquan#Default", 0);
 	AR.play("Bone_xuanwo#Default", 0);
 	AR.play("Bone_lizi#Default", 0);
-	AR.play("Bone_lizi_02#Default", 0);
 	Queue.Enqueue(StepGroupsNodeName[0]);
 	MakingAnimation();
 	ColorGradenit(StepBlocksNodeName[0]);
@@ -114,41 +112,31 @@ AR.onbegin = function(clipId) {};
 AR.onend = function(clipId) {};
 
 AR.onclick = function(nodeId, x, y) {
-
-	switch (nodeId) {
-		case "":
-			// SimulationScreenTouch();
-			break;
-		case "UI2_zaiwan":
-			ReStart();
-			break;
-		case "UI2_fanhui":
-			AR.exit();
-			break;
-			case "UI1_chongzhi":
-			UI.ResetPosition();
-		break;
-			case "UI1_paizhao":
-			UI.TakePhoto();			
-		break;
+	if (nodeId == "")
+		SimulationScreenTouch();
+	if (nodeId == "UI2_zaiwan") {
+		ReStart();
 	}
+	if (nodeId == "UI2_fanhui")
+		AR.exit();
+
 };
 
 
 
 AR.ontouch = function(x, y, state) {
-	if (gameOver) return;
-
+	if(gameOver)return;
 	switch (state) {
 		case 0:
-			var nodeId = AR.nodePick(x, y);
-			if (nodeId != null) return;
+			// var nodeId = AR.nodePick(x, y);
+			// if (nodeId != null) return;
 			if (!PressBegin && PressEnd) {
 				OnTouchPress();
-				Check();
 				PressBegin = true;
 				PressEnd = false;
 			}
+			MonitoringStatus();
+
 			break;
 		case 1:
 			if (PressBegin && !PressEnd) {
@@ -160,25 +148,6 @@ AR.ontouch = function(x, y, state) {
 	}
 };
 
-var timer = null;
-
-function Check() {
-	if (timer != null) AR.clearInterval(timer);
-	timer = AR.setInterval(function() {
-		var tmp_Index = CurStepIndex % StepGroupsNodeName.length;
-		var tmp_CurrentStepGroupNodeName = StepGroupsNodeName[tmp_Index];
-		SizeOfPreviousStep = AR.get_scale(Queue.SeachInQueue(QueueArray.length - 2)).x;
-		SizeOfCurrentStep = AR.get_scale(tmp_CurrentStepGroupNodeName).x;
-		if (SizeOfCurrentStep > SizeOfPreviousStep) {
-			AR.clearInterval(timer);
-			OnTouchRelease();
-			PressBegin=false;
-			PressEnd=true;
-		}
-		AR.log("123");
-
-	}, 10);
-}
 
 
 /**
@@ -186,20 +155,22 @@ function Check() {
  */
 function SimulationScreenTouch() {
 	var state = !PressBegin ? 0 : 1;
+	var MonitoringStatusTime = null;
 	switch (state) {
 		case 0:
 			if (!PressBegin) {
 				PressBegin = true;
 				OnTouchPress();
-				Check();
 			}
+			// if (MonitoringStatusTime != null)
+			// 	AR.clearInterval(MonitoringStatusTime);
+			// MonitoringStatusTime = AR.setInterval(function() {
+			// 	MonitoringStatus();
+			// }, 10);
 			break;
 		case 1:
 			if (PressBegin) {
 				PressBegin = false;
-				var tmp_Index = CurStepIndex % StepGroupsNodeName.length;
-				var tmp_CurrentStepGroupNodeName = StepGroupsNodeName[tmp_Index];
-				AR.stop(tmp_CurrentStepGroupNodeName + "Scale");
 				OnTouchRelease();
 			}
 			break;
@@ -224,13 +195,12 @@ function OnTouchPress() {
 	//Show step, scaling, coloring
 	AR.set_visible(tmp_NodeName, true);
 	AR.play(tmp_NodeName + "Scale", 1);
-	AR.log(tmp_NodeName);
+
 	//Color gradient
 	ColorGradenit(StepBlocksNodeName[tmp_Index]);
 
 	//For loop
 	Queue.Enqueue(tmp_NodeName);
-	OnPressing = true;
 }
 
 
@@ -238,6 +208,7 @@ function OnTouchPress() {
  * [OnTouchRelease description]Touch up
  */
 function OnTouchRelease() {
+	if (OnPressing) return;
 
 	//Getting the element
 	var tmp_Index = CurStepIndex % StepGroupsNodeName.length;
@@ -270,20 +241,16 @@ function OnTouchRelease() {
 		HintColor.r = 1;
 		HintColor.g = 0;
 		HintColor.b = 0;
-		gameOver = true;
-		OnPressing = false;
-
-		if (timer != null) AR.clearInterval(timer);
-
+		//Reset to max size
+		AR.scale(tmp_CurrentStepGroupNodeName, 1.2, 1, 1.2);
 		AR.setTimeout(function() {
 			UI.OnGameOver();
+			gameOver=true;
 		}, 200);
 	} else {
 		Score++;
 		UI.RefreshScore();
 	}
-
-
 
 	var AlphaTimer = AR.setInterval(function() {
 		if (HintColor.a <= 0) {
@@ -292,6 +259,7 @@ function OnTouchRelease() {
 		}
 		AR.modulate_color(CurrentStepHintNodeName, HintColor.r, HintColor.g, HintColor.b, HintColor.a -= 0.125, 0);
 	}, 40);
+
 
 	//next step
 	CurStepIndex++;
@@ -306,13 +274,27 @@ function OnTouchRelease() {
 	}
 }
 
+function MonitoringStatus() {
+	var tmp_Index = CurStepIndex % StepGroupsNodeName.length;
+	var tmp_CurrentStepGroupNodeName = StepGroupsNodeName[tmp_Index];
 
+	//Check the size of the current step and the previous step.
+	//If the size of the current step is larger than the size of the previous step,the game over.
+	SizeOfPreviousStep = AR.get_scale(StepGroupsNodeName[tmp_Index - 1]).x;
+	SizeOfCurrentStep = AR.get_scale(tmp_CurrentStepGroupNodeName).x;
+
+	if (SizeOfCurrentStep > SizeOfPreviousStep) {
+		OnTouchRelease();
+		OnPressing = true;
+	}
+}
 
 function ReStart() {
-	gameOver = false;
+	gameOver=false;
 	AR.play("Group_blockRest", 1);
 	for (var e in StepGroupsNodeName) {
 		AR.play(StepGroupsNodeName[e] + "RestToZero", 1);
+		AR.log(e);
 		if (e > 0) {
 			AR.scale(StepGroupsNodeName[e], 0, 0, 0);
 			AR.set_visible(StepGroupsNodeName[e], false);
@@ -421,7 +403,7 @@ function ColorGradenit(_nodeName) {
 		r: 0,
 		g: 0,
 		b: 0,
-		a: 0.85
+		a: 0.9
 	}
 	var tmp_ColorGradenit = AR.setInterval(function() {
 		if (tmp_Time < 0.33) {
@@ -495,19 +477,7 @@ UI = {
 		AR.set_visible("group_UI1", true);
 		Score = 0;
 		this.RefreshScore(0);
-	},
-	TakePhoto:function(){
-		AR.startRecord("PIC", true, null, function(result) {});
-	},
-	ResetPosition:function(){
-		var ua = AR.getUserAgent();
-		var screenSize = ua.split(';')[3].split(' ')[1];
-		var screenWith = screenSize.split('x')[1];
-		var screenHeight = screenSize.split('x')[0];
-		if (screenHeight > 1100) {
-			setSlamPos(500, 1020);
-			WorldOrigin = AR.get_position("group_Mod");
-		}
+
 	}
 }
 

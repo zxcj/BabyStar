@@ -120,11 +120,11 @@ scene
     }
     node UI1_chongzhi
     {
-        translate=10,0,0
+        translate=-15,0,0
     }
     node UI1_paizhao
     {
-        translate=10,0,0
+        translate=-15,0,0
     }
     node UI1_shuzi_01
     {
@@ -180,33 +180,53 @@ scene
     }
     node block__001
     {
+        oneBoundMin=0,0,0
+        oneBoundMax=0.1,0.1,0.1
     }
     node block__002
     {
+        oneBoundMin=0,0,0
+        oneBoundMax=0.1,0.1,0.1
     }
     node block__003
     {
+        oneBoundMin=0,0,0
+        oneBoundMax=0.1,0.1,0.1
     }
     node block__004
     {
+        oneBoundMin=0,0,0
+        oneBoundMax=0.1,0.1,0.1
     }
     node block__005
     {
+        oneBoundMin=0,0,0
+        oneBoundMax=0.1,0.1,0.1
     }
     node block__006
     {
+        oneBoundMin=0,0,0
+        oneBoundMax=0.1,0.1,0.1
     }
     node block__007
     {
+        oneBoundMin=0,0,0
+        oneBoundMax=0.1,0.1,0.1
     }
     node block__008
     {
+        oneBoundMin=0,0,0
+        oneBoundMax=0.1,0.1,0.1
     }
     node block__009
     {
+        oneBoundMin=0,0,0
+        oneBoundMax=0.1,0.1,0.1
     }
     node block__010
     {
+        oneBoundMin=0,0,0
+        oneBoundMax=0.1,0.1,0.1
     }
     node group_Mod
     {
@@ -215,7 +235,7 @@ scene
     node group_UI
     {
         scale=50,50,50
-        static=true
+        fixed=true
     }
     node group_UI1
     {
