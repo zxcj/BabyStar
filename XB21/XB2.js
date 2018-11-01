@@ -85,9 +85,11 @@ var WasClicked = false;
 
 AR.onload = function() {
 
-	AR.play("Bone_guangquan#Default", 0);
-	AR.play("Bone_xuanwo#Default", 0);
-	AR.play("Bone_lizi#Default", 0);
+	// AR.play("Bone_guangquan#Default", 0);
+	// AR.play("Bone_xuanwo#Default", 0);
+	// AR.play("Bone_lizi#Default", 0);
+	AR.play("group#Default",0);
+
 	Queue.Enqueue(StepGroupsNodeName[0]);
 	MakingAnimation();
 	ColorGradenit(StepBlocksNodeName[0]);
@@ -112,14 +114,27 @@ AR.onbegin = function(clipId) {};
 AR.onend = function(clipId) {};
 
 AR.onclick = function(nodeId, x, y) {
-	if (nodeId == "")
-		SimulationScreenTouch();
-	if (nodeId == "UI2_zaiwan") {
-		ReStart();
-	}
-	if (nodeId == "UI2_fanhui")
-		AR.exit();
+	// if (nodeId == "")
+	// 	SimulationScreenTouch();
 
+	switch (nodeId) {
+		case "":
+			// SimulationScreenTouch();
+			break;
+		case "UI2_zaiwan":
+			ReStart();
+			break;
+		case "UI2_fanhui":
+			AR.exit();
+			break;
+			case "UI1_chongzhi":
+			UI.ResetPosition();
+		break;
+			case "UI1_paizhao":
+			UI.TakePhoto();			
+		break;
+	}
+	
 };
 
 
@@ -477,7 +492,19 @@ UI = {
 		AR.set_visible("group_UI1", true);
 		Score = 0;
 		this.RefreshScore(0);
-
+	},
+	TakePhoto:function(){
+		AR.startRecord("PIC", true, null, function(result) {});
+	},
+	ResetPosition:function(){
+		var ua = AR.getUserAgent();
+		var screenSize = ua.split(';')[3].split(' ')[1];
+		var screenWith = screenSize.split('x')[1];
+		var screenHeight = screenSize.split('x')[0];
+		if (screenHeight > 1100) {
+			setSlamPos(500, 1020);
+			WorldOrigin = AR.get_position("group_Mod");
+		}
 	}
 }
 

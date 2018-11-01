@@ -1,0 +1,17 @@
+animation group
+{
+    frameCount = 321
+
+    startTime = 0
+
+    stopTime = 10682
+
+    clip Default
+    {
+        begin = 0
+        end = 321
+        repeatCount = 1
+    }
+
+}
+

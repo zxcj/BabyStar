@@ -5,19 +5,15 @@ scene
     showDefaultLight = false
     ambientColor = 1.0, 1.0, 1.0
 
-    modelSize = 5000.0
+    modelSize = 80
     modelScale = 1.0
-    defaultModelId=group_Mod
-
+    defaultModelId  = group_Mod
     node Group_block
     {
-        //scale = 0,0,0
-        //enabled=false
     }
     node Group_block_001
     {
-        //scale = 0,0,0
-        //enabled=false
+
     }
     node Group_block_002
     {
@@ -63,6 +59,9 @@ scene
     {
         scale = 0,0,0
         enabled=false
+    }
+    node Group_heibain
+    {
     }
     node Guangquan_001
     {
@@ -116,27 +115,18 @@ scene
     }
     node UI1_changan
     {
-        enabled=false
     }
     node UI1_chongzhi
     {
-        translate=-15,0,0
     }
     node UI1_paizhao
     {
-        translate=-15,0,0
     }
     node UI1_shuzi_01
     {
-        translate=0,25,0
-        oneBoundMin=0,0,0
-        oneBoundMax=0.1,0.1,0.1
     }
     node UI1_shuzi_02
     {
-        translate=0,25,0
-        oneBoundMin=0,0,0
-        oneBoundMax=0.1,0.1,0.1
     }
     node UI2_fanhui
     {
@@ -185,8 +175,6 @@ scene
     }
     node block__002
     {
-        oneBoundMin=0,0,0
-        oneBoundMax=0.1,0.1,0.1
     }
     node block__003
     {
@@ -229,23 +217,19 @@ scene
         oneBoundMax=0.1,0.1,0.1
     }
     node group_Mod
-    {
-        rotate=1,0,0,45
+    {       
     }
     node group_UI
     {
-        scale=50,50,50
         fixed=true
     }
     node group_UI1
     {
         //enabled=false
-        //static=true
     }
     node group_UI2
     {
-        enabled=false
-        //static=true
+        enabled=false        
     }
     node group_heidong
     {

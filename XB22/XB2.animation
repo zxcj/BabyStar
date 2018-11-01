@@ -1,0 +1,17 @@
+animation group_Mod
+{
+    frameCount = 320
+
+    startTime = 0
+
+    stopTime = 10666
+
+    clip Default
+    {
+        begin = 0
+        end = 320
+        repeatCount = 1
+    }
+
+}
+
