@@ -5,89 +5,138 @@ scene
     showDefaultLight = false
     ambientColor = 1.0, 1.0, 1.0
 
-    modelSize = 253.0
+    modelSize = 80.0
     modelScale = 1.0
+    defaultModelId=group_Mod
 
     node Group_block
     {
+        //scale = 0,0,0
+        //enabled=false
     }
     node Group_block_001
     {
+        //scale = 0,0,0
+        //enabled=false
     }
     node Group_block_002
     {
+        scale = 0,0,0
+        enabled=false
     }
     node Group_block_003
     {
+        scale = 0,0,0
+        enabled=false
     }
     node Group_block_004
     {
+        scale = 0,0,0
+        enabled=false
     }
     node Group_block_005
     {
+        scale = 0,0,0
+        enabled=false
     }
     node Group_block_006
     {
+        scale = 0,0,0
+        enabled=false
     }
     node Group_block_007
     {
+        scale = 0,0,0
+        enabled=false
     }
     node Group_block_008
     {
+        scale = 0,0,0
+        enabled=false
     }
     node Group_block_009
     {
+        scale = 0,0,0
+        enabled=false
     }
     node Group_block_010
     {
-    }
-    node Group_heibain
-    {
+        scale = 0,0,0
+        enabled=false
     }
     node Guangquan_001
     {
+        scale = 0,0,0
+        enabled=false
     }
     node Guangquan_0010
     {
+        scale = 0,0,0
+        enabled=false
     }
     node Guangquan_002
     {
+        scale = 0,0,0
+        enabled=false
     }
     node Guangquan_003
     {
+        scale = 0,0,0
+        enabled=false
     }
     node Guangquan_004
     {
+        scale = 0,0,0
+        enabled=false
     }
     node Guangquan_005
     {
+        scale = 0,0,0
+        enabled=false
     }
     node Guangquan_006
     {
+        scale = 0,0,0
+        enabled=false
     }
     node Guangquan_007
     {
+        scale = 0,0,0
+        enabled=false
     }
     node Guangquan_008
     {
+        scale = 0,0,0
+        enabled=false
     }
     node Guangquan_009
     {
+        scale = 0,0,0
+        enabled=false
     }
     node UI1_changan
     {
+        enabled=false
     }
     node UI1_chongzhi
     {
+       // translate=10,0,0
     }
     node UI1_paizhao
     {
+        //translate=10,0,0
     }
     node UI1_shuzi_01
     {
+       // translate=0,25,0
+        oneBoundMin=0,0,0
+        oneBoundMax=0.1,0.1,0.1
     }
     node UI1_shuzi_02
     {
+        //translate=0,25,0
+        oneBoundMin=0,0,0
+        oneBoundMax=0.1,0.1,0.1
     }
     node UI2_fanhui
     {
@@ -106,18 +155,28 @@ scene
     }
     node XBCC_gq
     {
+        oneBoundMin=0,0,0
+        oneBoundMax=0.1,0.1,0.1
     }
     node XBCC_gy
     {
+        oneBoundMin=0,0,0
+        oneBoundMax=0.1,0.1,0.1
     }
     node XBCC_lizi
     {
+        oneBoundMin=0,0,0
+        oneBoundMax=0.1,0.1,0.1
     }
     node XBCC_lizi_02
     {
+        oneBoundMin=0,0,0
+        oneBoundMax=0.1,0.1,0.1
     }
     node XBCC_xw
     {
+        oneBoundMin=0,0,0
+        oneBoundMax=0.1,0.1,0.1
     }
     node block__001
     {
@@ -151,30 +210,48 @@ scene
     }
     node group_Mod
     {
+        rotate=1,0,0,45
     }
     node group_UI
     {
+       // scale=50,50,50
+        //static=true
+        fixed=true
+
     }
     node group_UI1
     {
+        //enabled=false
+        //static=true
     }
     node group_UI2
     {
+        enabled=false
+        //static=true
+
     }
     node group_heidong
     {
     }
     node pPipe1
     {
+        oneBoundMin=0,0,0
+        oneBoundMax=0.1,0.1,0.1
     }
     node touming_01
     {
+        oneBoundMin=0,0,0
+        oneBoundMax=0.1,0.1,0.1
     }
     node xingkong
     {
+        oneBoundMin=0,0,0
+        oneBoundMax=0.1,0.1,0.1
     }
     node xingxing
     {
+        oneBoundMin=0,0,0
+        oneBoundMax=0.1,0.1,0.1
     }
 
 }

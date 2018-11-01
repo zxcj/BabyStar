@@ -21,7 +21,7 @@ material textured
             
             renderState
             {
-                blend = true
+                blend = false
                 blendDst = ONE_MINUS_SRC_ALPHA
                 blendSrc = SRC_ALPHA
                 cullFace = true
@@ -33,157 +33,18 @@ material textured
     }
 }
 
-material lambert10 : textured
-{
-    u_modulateColor=1,1,1,0.8
-    u_modulateAlpha=1
-    sampler u_diffuseTexture
-    {
-        path = XB2.fbm/XBCC_dizuo_01_Tex.png
-    }
-
-    technique
-    {
-        pass 
-        {
-            renderState
-            {
-               blend = true
-               blendSrc = SRC_ALPHA
-               blendDst = ONE_MINUS_SRC_ALPHA
-               alphaBlendDst = ONE
-               alphaBlendSrc = ONE
-            }
-            u_matrixPalette = MATRIX_PALETTE
-            
-            defines = DIRECTIONAL_LIGHT_COUNT 1;SKINNING;SKINNING_JOINT_COUNT 1;MODULATE_COLOR;MODULATE_ALPHA
-        }
-    }
-}
-
-material lambert12 : textured
-{
-    u_modulateColor=1,1,1,1
-    u_modulateAlpha=1
-    sampler u_diffuseTexture
-    {
-        path = XB2.fbm/XBCC_lizi_10_Tex.png
-    }
-
-    technique
-    {
-        pass 
-        {
-            renderState
-            {
-               blend = true
-               blendSrc = SRC_ALPHA
-               blendDst = ONE_MINUS_SRC_ALPHA
-               alphaBlendDst = ONE
-               alphaBlendSrc = ONE
-            }
-            u_matrixPalette = MATRIX_PALETTE
-            
-            defines = DIRECTIONAL_LIGHT_COUNT 1;SKINNING;SKINNING_JOINT_COUNT 1;MODULATE_COLOR;MODULATE_ALPHA
-        }
-    }
-}
-
-material lambert14 : textured
-{
-    sampler u_diffuseTexture
-    {
-        path = XB2.fbm/XBCC_lizi_02_Tex.png
-    }
-
-    technique
-    {
-        pass 
-        {
-            renderState
-            {
-               blend = true
-               blendSrc = SRC_ALPHA
-               blendDst = ONE_MINUS_SRC_ALPHA
-               alphaBlendDst = ONE
-               alphaBlendSrc = ONE
-            }
-            u_matrixPalette = MATRIX_PALETTE
-            
-            defines = DIRECTIONAL_LIGHT_COUNT 1;SKINNING;SKINNING_JOINT_COUNT 1
-        }
-    }
-}
-
-material lambert16 : textured
-{
-    sampler u_diffuseTexture
-    {
-        path = XB2.fbm/XBCC_lizi_04_Tex.png
-    }
-
-    technique
-    {
-        pass 
-        {
-            renderState
-            {
-               blend = true
-               blendSrc = SRC_ALPHA
-               blendDst = ONE_MINUS_SRC_ALPHA
-               alphaBlendDst = ONE
-               alphaBlendSrc = ONE
-            }
-            u_matrixPalette = MATRIX_PALETTE
-            
-            defines = DIRECTIONAL_LIGHT_COUNT 1;SKINNING;SKINNING_JOINT_COUNT 1
-        }
-    }
-}
-
-material lambert17 : textured
-{
-    sampler u_diffuseTexture
-    {
-        path = XB2.fbm/XBCC_touming_01_Tex.png
-    }
-
-    technique
-    {
-        pass 
-        {
-            renderState
-            {
-               blend = true
-               blendSrc = SRC_ALPHA
-               blendDst = ONE_MINUS_SRC_ALPHA
-               alphaBlendDst = ONE
-               alphaBlendSrc = ONE
-            }
-            u_matrixPalette = MATRIX_PALETTE
-            
-            defines = DIRECTIONAL_LIGHT_COUNT 1;SKINNING;SKINNING_JOINT_COUNT 1
-        }
-    }
-}
-
 material lambert19 : textured
 {
     sampler u_diffuseTexture
     {
         path = XB2.fbm/paizhao.png
     }
-    renderState
-    {
-        depthFunc=ALWAYS
-    }
+
     technique
     {
         pass 
         {
-            u_matrixPalette = MATRIX_PALETTE
-            
-            defines = DIRECTIONAL_LIGHT_COUNT 1;SKINNING;SKINNING_JOINT_COUNT 1
+            defines = DIRECTIONAL_LIGHT_COUNT 1
         }
     }
 }
@@ -194,17 +55,12 @@ material lambert22 : textured
     {
         path = XB2.fbm/chognzhi.png
     }
-    renderState
-    {
-        depthFunc=ALWAYS
-    }
+
     technique
     {
         pass 
         {
-            u_matrixPalette = MATRIX_PALETTE
-            
-            defines = DIRECTIONAL_LIGHT_COUNT 1;SKINNING;SKINNING_JOINT_COUNT 1
+            defines = DIRECTIONAL_LIGHT_COUNT 1
         }
     }
 }
@@ -215,17 +71,12 @@ material lambert23 : textured
     {
         path = XB2.fbm/changan.png
     }
-    renderState
-    {
-        depthFunc=ALWAYS
-    }
+
     technique
     {
         pass 
         {
-            u_matrixPalette = MATRIX_PALETTE
-            
-            defines = DIRECTIONAL_LIGHT_COUNT 1;SKINNING;SKINNING_JOINT_COUNT 1
+            defines = DIRECTIONAL_LIGHT_COUNT 1
         }
     }
 }
@@ -234,19 +85,14 @@ material lambert24 : textured
 {
     sampler u_diffuseTexture
     {
-        path =bundle/number/0.png
+        path = XB2.fbm/8.png
     }
-    renderState
-    {
-        depthFunc=ALWAYS
-    }
+
     technique
     {
         pass 
         {
-            u_matrixPalette = MATRIX_PALETTE
-            
-            defines = DIRECTIONAL_LIGHT_COUNT 1;SKINNING;SKINNING_JOINT_COUNT 1
+            defines = DIRECTIONAL_LIGHT_COUNT 1
         }
     }
 }
@@ -255,19 +101,14 @@ material lambert25 : textured
 {
     sampler u_diffuseTexture
     {
-        path = bundle/number/0.png
+        path = XB2.fbm/0.png
     }
-    renderState
-    {
-        depthFunc=ALWAYS
-    }
+
     technique
     {
         pass 
         {
-            u_matrixPalette = MATRIX_PALETTE
-            
-            defines = DIRECTIONAL_LIGHT_COUNT 1;SKINNING;SKINNING_JOINT_COUNT 1
+            defines = DIRECTIONAL_LIGHT_COUNT 1
         }
     }
 }
@@ -278,17 +119,12 @@ material lambert26 : textured
     {
         path = XB2.fbm/zu.png
     }
-    renderState
-    {
-        depthFunc=ALWAYS
-    }
+
     technique
     {
         pass 
         {
-            u_matrixPalette = MATRIX_PALETTE
-            
-            defines = DIRECTIONAL_LIGHT_COUNT 1;SKINNING;SKINNING_JOINT_COUNT 1
+            defines = DIRECTIONAL_LIGHT_COUNT 1
         }
     }
 }
@@ -299,18 +135,12 @@ material lambert27 : textured
     {
         path = XB2.fbm/fanhui.png
     }
-    renderState
-    {
-        depthFunc=ALWAYS
-    }
 
     technique
     {
         pass 
         {
-            u_matrixPalette = MATRIX_PALETTE
-            
-            defines = DIRECTIONAL_LIGHT_COUNT 1;SKINNING;SKINNING_JOINT_COUNT 1
+            defines = DIRECTIONAL_LIGHT_COUNT 1
         }
     }
 }
@@ -321,17 +151,12 @@ material lambert28 : textured
     {
         path = XB2.fbm/zaiwan.png
     }
-    renderState
-    {
-        depthFunc=ALWAYS
-    }
+
     technique
     {
         pass 
         {
-            u_matrixPalette = MATRIX_PALETTE
-            
-            defines = DIRECTIONAL_LIGHT_COUNT 1;SKINNING;SKINNING_JOINT_COUNT 1
+            defines = DIRECTIONAL_LIGHT_COUNT 1
         }
     }
 }
@@ -340,16 +165,14 @@ material lambert29 : textured
 {
     sampler u_diffuseTexture
     {
-        path = bundle/number/0.png
+        path = XB2.fbm/8_1.png
     }
 
     technique
     {
         pass 
         {
-            u_matrixPalette = MATRIX_PALETTE
-            
-            defines = DIRECTIONAL_LIGHT_COUNT 1;SKINNING;SKINNING_JOINT_COUNT 1
+            defines = DIRECTIONAL_LIGHT_COUNT 1
         }
     }
 }
@@ -358,21 +181,19 @@ material lambert30 : textured
 {
     sampler u_diffuseTexture
     {
-        path = bundle/number/0.png
+        path = XB2.fbm/0_1.png
     }
 
     technique
     {
         pass 
         {
-            u_matrixPalette = MATRIX_PALETTE
-            
-            defines = DIRECTIONAL_LIGHT_COUNT 1;SKINNING;SKINNING_JOINT_COUNT 1
+            defines = DIRECTIONAL_LIGHT_COUNT 1
         }
     }
 }
 
-material lambert31 : textured
+material lambert39 : textured
 {
     sampler u_diffuseTexture
     {
@@ -383,14 +204,44 @@ material lambert31 : textured
     {
         pass 
         {
-            u_matrixPalette = MATRIX_PALETTE
-            
-            defines = DIRECTIONAL_LIGHT_COUNT 1;SKINNING;SKINNING_JOINT_COUNT 1
+            defines = DIRECTIONAL_LIGHT_COUNT 1
         }
     }
 }
 
-material lambert5 : textured
+material lambert40 : textured
+{
+    sampler u_diffuseTexture
+    {
+        path = XB2.fbm/XBCC_touming_01_Tex.png
+    }
+
+    technique
+    {
+        pass 
+        {
+            defines = DIRECTIONAL_LIGHT_COUNT 1
+        }
+    }
+}
+
+material lambert41 : textured
+{
+    sampler u_diffuseTexture
+    {
+        path = XB2.fbm/XBCC_guangquanTex.png
+    }
+
+    technique
+    {
+        pass 
+        {
+            defines = DIRECTIONAL_LIGHT_COUNT 1
+        }
+    }
+}
+
+material lambert42 : textured
 {
     sampler u_diffuseTexture
     {
@@ -401,68 +252,12 @@ material lambert5 : textured
     {
         pass 
         {
-            renderState
-            {
-               blend = true
-               blendSrc = SRC_ALPHA
-               blendDst = ONE_MINUS_SRC_ALPHA
-               alphaBlendDst = ONE
-               alphaBlendSrc = ONE
-            }
-            u_matrixPalette = MATRIX_PALETTE
-            
-            defines = DIRECTIONAL_LIGHT_COUNT 1;SKINNING;SKINNING_JOINT_COUNT 1
+            defines = DIRECTIONAL_LIGHT_COUNT 1
         }
     }
 }
 
-material lambert6 : textured
-{
-    u_modulateColor=1,1,1,1
-    u_modulateAlpha=1
-    sampler u_diffuseTexture
-    {
-        path = XB2.fbm/XBCC_guangquanTex.png
-    }
-
-    technique
-    {
-        pass 
-        {
-            renderState
-            {
-               blend = true
-               blendSrc = SRC_ALPHA
-               blendDst = ONE_MINUS_SRC_ALPHA
-               alphaBlendDst = ONE
-               alphaBlendSrc = ONE
-            }
-            u_matrixPalette = MATRIX_PALETTE
-            
-            defines = DIRECTIONAL_LIGHT_COUNT 1;SKINNING;SKINNING_JOINT_COUNT 1;MODULATE_COLOR;MODULATE_ALPHA
-        }
-    }
-}
-
-material lambert7 : textured
-{
-    sampler u_diffuseTexture
-    {
-        path = XB2.fbm/XBCC_xuanwo_02_Tex.png
-    }
-
-    technique
-    {
-        pass 
-        {
-            u_matrixPalette = MATRIX_PALETTE
-            
-            defines = DIRECTIONAL_LIGHT_COUNT 1;SKINNING;SKINNING_JOINT_COUNT 1
-        }
-    }
-}
-
-material lambert8 : textured
+material lambert43 : textured
 {
     sampler u_diffuseTexture
     {
@@ -473,25 +268,77 @@ material lambert8 : textured
     {
         pass 
         {
-            renderState
-            {
-               blend = true
-               blendSrc = SRC_ALPHA
-               blendDst = ONE_MINUS_SRC_ALPHA
-               alphaBlendDst = ONE
-               alphaBlendSrc = ONE
-            }
-            u_matrixPalette = MATRIX_PALETTE
-            
-            defines = DIRECTIONAL_LIGHT_COUNT 1;SKINNING;SKINNING_JOINT_COUNT 1
+            defines = DIRECTIONAL_LIGHT_COUNT 1
         }
     }
 }
 
-material lambert9 : textured
+material lambert44 : textured
 {
-    u_modulateColor=1,1,1,1
-    u_modulateAlpha=1
+    sampler u_diffuseTexture
+    {
+        path = XB2.fbm/XBCC_lizi_10_Tex.png
+    }
+
+    technique
+    {
+        pass 
+        {
+            defines = DIRECTIONAL_LIGHT_COUNT 1
+        }
+    }
+}
+
+material lambert45 : textured
+{
+    sampler u_diffuseTexture
+    {
+        path = XB2.fbm/XBCC_xuanwo_02_Tex.png
+    }
+
+    technique
+    {
+        pass 
+        {
+            defines = DIRECTIONAL_LIGHT_COUNT 1
+        }
+    }
+}
+
+material lambert46 : textured
+{
+    sampler u_diffuseTexture
+    {
+        path = XB2.fbm/XBCC_lizi_04_Tex.png
+    }
+
+    technique
+    {
+        pass 
+        {
+            defines = DIRECTIONAL_LIGHT_COUNT 1
+        }
+    }
+}
+
+material lambert47 : textured
+{
+    sampler u_diffuseTexture
+    {
+        path = XB2.fbm/XBCC_lizi_02_Tex.png
+    }
+
+    technique
+    {
+        pass 
+        {
+            defines = DIRECTIONAL_LIGHT_COUNT 1
+        }
+    }
+}
+
+material lambert48 : textured
+{
     sampler u_diffuseTexture
     {
         path = XB2.fbm/XBCC_guangquan_Tex.png
@@ -501,17 +348,23 @@ material lambert9 : textured
     {
         pass 
         {
-            renderState
-            {
-               blend = true
-               blendSrc = SRC_ALPHA
-               blendDst = ONE_MINUS_SRC_ALPHA
-               alphaBlendDst = ONE
-               alphaBlendSrc = ONE
-            }
-            u_matrixPalette = MATRIX_PALETTE
-            
-            defines = DIRECTIONAL_LIGHT_COUNT 1;SKINNING;SKINNING_JOINT_COUNT 1;MODULATE_COLOR;MODULATE_ALPHA
+            defines = DIRECTIONAL_LIGHT_COUNT 1
+        }
+    }
+}
+
+material lambert49 : textured
+{
+    sampler u_diffuseTexture
+    {
+        path = XB2.fbm/XBCC_dizuo_01_Tex.png
+    }
+
+    technique
+    {
+        pass 
+        {
+            defines = DIRECTIONAL_LIGHT_COUNT 1
         }
     }
 }
